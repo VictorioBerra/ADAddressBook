@@ -13,10 +13,12 @@ namespace ADAddressBook.Controllers
     public class SearchController : Controller
     {
         private readonly ADSearchService _ADSearchService;
+        private readonly IOptions<ADSettings> _ADSettings;
 
-        public SearchController(ADSearchService ADSearchService)
+        public SearchController(ADSearchService ADSearchService, IOptions<ADSettings> ADSettings)
         {
             this._ADSearchService = ADSearchService;
+            this._ADSettings = ADSettings;
         }
 
         public IActionResult Index()
@@ -32,11 +34,25 @@ namespace ADAddressBook.Controllers
             var entries = _ADSearchService.Search(username);
 
             SearchResultsViewModel vm = new SearchResultsViewModel();
-            vm.Entries = entries.Select(x => new EntryResultViewModel()
+
+            if (entries.Count > 0)
             {
-                cn = x.getAttribute("cn").StringValue,
-                mail = x.getAttribute("mail").StringValue
-            }).ToList();
+                foreach (var entry in entries)
+                {
+                    var entryVm = new EntryViewModel();
+
+                    foreach (var attribute in _ADSettings.Value.ResultAttributes)
+                    {
+                        entryVm.entryAttrbiuteViewModel.Add(new EntryAttrbiuteViewModel()
+                        {
+                            AttributeName = attribute,
+                            AttributeValue = entry.getAttribute(attribute).StringValue
+                        });
+                    }
+
+                    vm.Entries.Add(entryVm);
+                }
+            }
 
             return View(nameof(SearchController.Results), vm);
         }

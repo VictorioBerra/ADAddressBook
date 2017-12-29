@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>ab584be0-1453-4c0f-835a-13468e6e8c1f</UserSecretsId>
+    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,5 +19,6 @@
       <HintPath>..\..\lib\Novell.Directory.Ldap.NETStandard\netstandard1.3\Novell.Directory.Ldap.NETStandard.dll</HintPath>
     </Reference>
   </ItemGroup>
+ 
 
 </Project>

@@ -5,13 +5,28 @@ namespace ADAddressBook.Models
 {
     public class SearchResultsViewModel
     {
-        public List<EntryResultViewModel> Entries { get; set; }
+        public SearchResultsViewModel()
+        {
+            Entries = new List<EntryViewModel>();
+        }
+
+        public List<EntryViewModel> Entries { get; set; }
     }
 
-    public class EntryResultViewModel
+    public class EntryViewModel
     {
-        public string cn { get; set; }
+        public EntryViewModel()
+        {
+            entryAttrbiuteViewModel = new List<EntryAttrbiuteViewModel>();
+        }
 
-        public string mail { get; set; }
+        public List<EntryAttrbiuteViewModel> entryAttrbiuteViewModel { get; set; }
+    }
+
+    public class EntryAttrbiuteViewModel
+    {
+        public string AttributeName { get; set; }
+
+        public string AttributeValue { get; set; }
     }
 }

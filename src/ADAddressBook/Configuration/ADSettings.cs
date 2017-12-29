@@ -1,4 +1,6 @@
-﻿namespace ADAddressBook
+﻿using System.Collections.Generic;
+
+namespace ADAddressBook
 {
     public class ADSettings
     {
@@ -13,5 +15,7 @@
         public bool ssl { get; set; }
 
         public string SearchBase { get; set; }
+
+        public List<string> ResultAttributes { get; set; }
     }
 }

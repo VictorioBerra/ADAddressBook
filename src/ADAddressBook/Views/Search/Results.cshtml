@@ -7,13 +7,34 @@
     Search Results
 </h2>
 <hr />
-<ul>
-    @foreach (var entry in Model.Entries)
-    {
-        <li>
-            <span>
-                @entry.cn - @entry.mail
-            </span>
-        </li>
-    }
-</ul>
+
+@if (Model.Entries.Count > 0)
+{
+    <ul class="list-unstyled">
+        @foreach (var entry in Model.Entries)
+        {
+            <li>
+                <dl>
+                    @foreach (var attrbiute in entry.entryAttrbiuteViewModel)
+                    {
+                        <dt>
+                            @attrbiute.AttributeName
+                        </dt>
+                        <dd>
+                            @attrbiute.AttributeValue
+                        </dd>
+                    }
+                </dl>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <h3>
+        No results found.
+    </h3>
+    <p>
+        <a asp-area="" asp-controller="Search" asp-action="Index">Back to search</a>
+    </p>
+}

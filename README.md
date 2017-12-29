@@ -24,7 +24,11 @@ Works on Windows, Mac and Linux
     "ssl": true,
     "username": "cn=read-only-admin,dc=example,dc=com",
     "password": "password",
-    "SearchBase": "dc=example,dc=com"
+    "SearchBase": "dc=example,dc=com",
+    "ResultAttributes": [
+      "cn",
+      "mail"
+    ]
   }
 ```
 - [Thanks Mamoon Yunus](https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/)

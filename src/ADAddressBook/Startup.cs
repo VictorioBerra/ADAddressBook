@@ -25,8 +25,8 @@ namespace ADAddressBook
         {
             services.Configure<ADSettings>(Configuration.GetSection("ADSettings"));
 
-            services.AddSingleton<ADSearchService>();
-            services.AddSingleton<LdapConnection>();
+            services.AddScoped<ADSearchService>();
+            services.AddScoped<LdapConnection>();
 
             services.AddMvc();
         }
