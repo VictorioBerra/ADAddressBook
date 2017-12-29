@@ -12,8 +12,7 @@ Works on Windows, Mac and Linux
 
 ## Configuration
 - See ADSettings in appsettings.json
-- Modify `search` in src\adaddressbook\services\adsearchservice.cs to change the filter settings.
-- Modify the result controller and model to add new attributes, or make this dynamic and mconfigurable
+- Modify `search()` in src\adaddressbook\services\adsearchservice.cs to change the filter settings
 - Have fun!
 
 ## Sample LDAP server settings:
