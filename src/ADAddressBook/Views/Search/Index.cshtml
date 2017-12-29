@@ -1,0 +1,18 @@
+﻿@model SearchViewModel
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Search</h2>
+        <form asp-controller="Search" asp-action="Index" method="post">
+            <div class="form-group">
+                <label asp-for="username"></label>
+                <small>Filter: "(|(uid=*{input}*)(displayName=*{input}*)(cn=*{input}*)(sn=*{input}*))"</small>
+                <input class="form-control" asp-for="username" /><br />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+    </div>
+</div>
